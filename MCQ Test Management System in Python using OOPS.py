@@ -12,6 +12,7 @@ class teacher:
         self.c=c
         self.d=d
         self.answer=answer
+        
     def printdetails(self):
         print(self.Question)
         print("a) "+self.a)
@@ -22,17 +23,17 @@ class teacher:
     def anscomp(self):
         return self.answer
         
-
-    
         
 if profile==1:
     p_check=input("Enter the password: \n")
     if p_check == password:
         print("\nWelcome to the MCQ Paper Creating Section")
         mcq_count=int(input("Enter the number of MCQ's you want to input: \n"))
+        
         f=open("mcqcount.txt","a")
         f.write(str(mcq_count))
         f.close()
+        
         n=1
         while (n<=mcq_count):
             f=open(str(n)+" "+"MCQ.txt","wb")
@@ -41,11 +42,11 @@ if profile==1:
             b=input("Enter Option B: ")
             c=input("Enter Option C: ")
             d=input("Enter Option D: ")
-            
-
             answer=input("Enter the Correct Answer(a,b,c,d): ")
+            
             t=teacher(Question,a,b,c,d,answer)         
             pickle.dump(t,f)
+            
             n=n+1
             f.close()
     else:
