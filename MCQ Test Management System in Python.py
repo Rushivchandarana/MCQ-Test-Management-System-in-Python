@@ -8,9 +8,11 @@ if profile==1:
         print("\nWelcome to the MCQ Paper Creating Section")
         subject=input("Enter the Subject: ")
         mcq_count=int(input("Enter the number of MCQ's you want to input: "))
+        
         f=open("mcqcount.txt","a")
         f.write(str(mcq_count))
         f.close()
+        
         n=1
         while (n<=mcq_count):
             f=open(str(n)+" "+"MCQ.txt","a")
@@ -25,9 +27,7 @@ if profile==1:
             f.write("\n(b)"+" "+b)    
             f.write("\n(c)"+" "+c)    
             f.write("\n(d)"+" "+d)
-            
-    
-
+           
             Data=open("Answers.txt","a")
             ans=input("Enter the Correct Answer(a,b,c,d): ")
             Data.write("\nMcq"+str(n)+"="+ans)
@@ -41,16 +41,18 @@ if profile==1:
 elif profile==0:
     print("Welcome to the MCQ Examination\n")
     student_name=input("Enter Your Name: ")
+    
     with open ("mcqcount.txt") as f:
         sample=int(f.read())
-        empty=" "
         n=1
         marks=0
+        
         while (n<=sample):
             with open (str(n)+" "+"MCQ.txt") as f:
                     qreader=f.read()
                     print(qreader)
                     tool=input("\nEnter your answer: ")
+                    
                     with open ("Answers.txt") as f:
                         content=f.readlines()[n]
                         if tool in content:
@@ -58,6 +60,7 @@ elif profile==0:
                         n=n+1
                         f.close()
                         f.close()
+                        
     a=f"you have scored {marks} out of {sample}"
     print(a)
                 
